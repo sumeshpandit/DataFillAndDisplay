@@ -27,10 +27,8 @@ class DisplayFragment : Fragment() {
 
         button=view.findViewById(R.id.backButton)
 
-
         val details = view.findViewById<TextView> (R.id.content);
 
-        //val fill= arguments?.getString("msg")
         val fill=args.displayText
         details.text=fill
 
@@ -38,8 +36,6 @@ class DisplayFragment : Fragment() {
 
         button.setOnClickListener {
 
-//            val comInterface= activity as CommunicationInterface
-//            comInterface.back()
             Navigation.findNavController(view).navigate(R.id.action_displayFragment_to_fillingFragment)
 
         }

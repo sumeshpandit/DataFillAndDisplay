@@ -1,6 +1,5 @@
 package com.sumeshpandit.datafill
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
-import androidx.navigation.NavInflater
 import androidx.navigation.Navigation
 
 class FillingFragment : Fragment() {
@@ -19,9 +17,9 @@ class FillingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_filling, container, false)
 
-       // val sub = view.findViewById<Button>(R.id.submit)
         view.findViewById<Button>(R.id.submit).setOnClickListener {
 
             val fname = view.findViewById<EditText>(R.id.firstText)
@@ -38,8 +36,6 @@ class FillingFragment : Fragment() {
 
             val rem = view.findViewById<EditText>(R.id.otherText)
 
-            //val comm= activity as CommunicationInterface
-
             val dispText="\n You are ${fname.text} ${lname.text}. \n \n You are ${age.text} years old. \n \n" +
                     " Your gender is ${if(isMale.isChecked) "Male" else "Female"}.\n \n Joining " +
                     "details will be sent to: \n ${mail.text} \n \n You belong to ${dept.text} department. \n " +
@@ -48,9 +44,6 @@ class FillingFragment : Fragment() {
             val action= FillingFragmentDirections.actionFillingFragmentToDisplayFragment(dispText)
 
             Navigation.findNavController(view).navigate(action)
-
-           // Navigation.findNavController(this)
-            //comm.passData(dispText)
 
         }
         return view
