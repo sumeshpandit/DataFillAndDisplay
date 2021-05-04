@@ -9,11 +9,11 @@
         android:id="@+id/fillingFragment"
         android:name="com.sumeshpandit.datafill.FillingFragment"
         android:label="fragment_filling"
-        tools:layout="@layout/fragment_filling" >
+        tools:layout="@layout/fragment_filling">
         <action
             android:id="@+id/action_fillingFragment_to_displayFragment"
             app:destination="@id/displayFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
+            app:enterAnim="@anim/fragment_fade_enter"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
@@ -22,10 +22,11 @@
         android:id="@+id/displayFragment"
         android:name="com.sumeshpandit.datafill.DisplayFragment"
         android:label="fragment_display"
-        tools:layout="@layout/fragment_display" >
+        tools:layout="@layout/fragment_display">
         <action
             android:id="@+id/action_displayFragment_to_fillingFragment"
-            app:destination="@id/fillingFragment" />
+            app:destination="@id/fillingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <argument
             android:name="displayText"
             app:argType="string" />
