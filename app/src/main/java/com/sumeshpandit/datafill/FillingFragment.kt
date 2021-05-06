@@ -5,10 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.RadioButton
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import com.google.android.material.textfield.TextInputLayout
+import com.sumeshpandit.datafill.databinding.FragmentFillingBinding
 
 class FillingFragment : Fragment() {
 
@@ -16,34 +17,36 @@ class FillingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        val view = inflater.inflate(R.layout.fragment_filling, container, false)
+        val binding= DataBindingUtil.inflate<FragmentFillingBinding>(inflater,R.layout.fragment_filling, container, false)
+        val view=binding.root
+        val firstName=view.findViewById<TextInputLayout>(R.id.firstName)
+        val lastName=view.findViewById<TextInputLayout>(R.id.lastName)
+        val ageOfPerson=view.findViewById<TextInputLayout>(R.id.pAge)
+        val department=view.findViewById<TextInputLayout>(R.id.department)
+        val email=view.findViewById<TextInputLayout>(R.id.mail)
+        val isMale=view.findViewById<RadioButton>(R.id.Male)
+        val isFemale=view.findViewById<RadioButton>(R.id.Female)
+        val additional=view.findViewById<TextInputLayout>(R.id.additional)
+        binding.submit.setOnClickListener {
 
-        view.findViewById<Button>(R.id.submit).setOnClickListener {
+            binding.fname=firstName.editText?.text.toString()
+            binding.lname=lastName.editText?.text.toString()
+            binding.age=ageOfPerson.editText?.text.toString()
+            binding.dept=department.editText?.text.toString()
+            binding.email=email.editText?.text.toString()
+            binding.male=isMale.isChecked
+            binding.female=isFemale.isChecked
+            binding.other=additional.editText?.text.toString()
+            val displayText="\n You are ${binding.fname} ${binding.lname}. \n \n You are ${binding.age} years old. \n \n" +
+                    " Your gender is ${if(binding.male==true) "Male" else if(binding.female==true) "Female" else " "} .\n \n Joining " +
+                    "details will be sent to: \n ${binding.email} \n \n You belong to ${binding.dept} department. \n " +
+                    "\n Additional Information:\n ${binding.other}\n"
 
-            val fname = view.findViewById<EditText>(R.id.firstText)
+            val action= FillingFragmentDirections.actionFillingFragmentToDisplayFragment(displayText)
 
-            val lname = view.findViewById<EditText>(R.id.lastText)
-
-            val age = view.findViewById<EditText>(R.id.ageText)
-
-            val mail = view.findViewById<EditText>(R.id.mailText)
-
-            val dept = view.findViewById<EditText>(R.id.deptText)
-
-            val isMale = view.findViewById<RadioButton>(R.id.male)
-
-            val rem = view.findViewById<EditText>(R.id.otherText)
-
-            val dispText="\n You are ${fname.text} ${lname.text}. \n \n You are ${age.text} years old. \n \n" +
-                    " Your gender is ${if(isMale.isChecked) "Male" else "Female"}.\n \n Joining " +
-                    "details will be sent to: \n ${mail.text} \n \n You belong to ${dept.text} department. \n " +
-                    "\n Additional Information:\n ${rem.text}\n"
-
-            val action= FillingFragmentDirections.actionFillingFragmentToDisplayFragment(dispText)
-
-            Navigation.findNavController(view).navigate(action)
+            Navigation.findNavController(binding.root).navigate(action)
 
         }
         return view

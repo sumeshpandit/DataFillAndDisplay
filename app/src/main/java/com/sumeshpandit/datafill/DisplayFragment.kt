@@ -5,12 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-
+import com.sumeshpandit.datafill.databinding.FragmentDisplayBinding
 
 class DisplayFragment : Fragment() {
 
@@ -19,23 +18,20 @@ class DisplayFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        val view= inflater.inflate(R.layout.fragment_display, container, false)
-
-        val details = view.findViewById<TextView> (R.id.content);
+        val binding=DataBindingUtil.inflate<FragmentDisplayBinding>(inflater,R.layout.fragment_display, container, false)
 
         val fill=args.displayText
-        details.text=fill
+        binding.displayText=fill
+
         val salute="Have a nice day!"
         Toast.makeText(context,salute, Toast.LENGTH_SHORT).show()
 
-        view.findViewById<FloatingActionButton>(R.id.backButton).setOnClickListener {
-
-            Navigation.findNavController(view).navigate(R.id.action_displayFragment_to_fillingFragment)
-
+        binding.backButton.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_displayFragment_to_fillingFragment)
         }
-        return view
+        return binding.root
     }
 
 }
