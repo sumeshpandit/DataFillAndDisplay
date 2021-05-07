@@ -20,6 +20,10 @@
         <action
             android:id="@+id/action_fillingFragment_to_departmentFragment"
             app:destination="@id/departmentFragment" />
+        <argument
+            android:name="deptName"
+            app:argType="string"
+            android:defaultValue="Department" />
     </fragment>
     <fragment
         android:id="@+id/displayFragment"

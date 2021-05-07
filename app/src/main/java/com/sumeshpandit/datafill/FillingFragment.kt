@@ -26,13 +26,18 @@ class FillingFragment : Fragment() {
     ): View {
 
         val binding= DataBindingUtil.inflate<FragmentFillingBinding>(inflater,R.layout.fragment_filling, container, false)
+        binding.department.text=arguments?.get("deptName").toString()
+
+        binding.department.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_fillingFragment_to_departmentFragment)
+        }
 
         binding.submit.setOnClickListener {
 
             fName=binding.firstName.editText?.text.toString()
             lName=binding.lastName.editText?.text.toString()
             age=binding.pAge.editText?.text.toString()
-            dept=binding.department.editText?.text.toString()
+            dept=binding.department.text.toString()
             email=binding.mail.editText?.text.toString()
             male=binding.male.isChecked
             female=binding.female.isChecked
@@ -40,7 +45,7 @@ class FillingFragment : Fragment() {
 
             val displayText="\n You are $fName $lName . \n \n You are $age years old. \n \n" +
                     " Your gender is ${if(male) "Male" else if(female) "Female" else " "} .\n \n Joining " +
-                    "details will be sent to: \n $email \n \n You belong to $dept department. \n " +
+                    "details will be sent to: \n $email \n \n You belong to $dept . \n " +
                     "\n Additional Information:\n ${other}\n"
 
             val action= FillingFragmentDirections.actionFillingFragmentToDisplayFragment(displayText)
