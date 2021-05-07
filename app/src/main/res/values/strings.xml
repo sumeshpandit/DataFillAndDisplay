@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Data Fill</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="enter_your_age">Enter your age.</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="department_name">Department Name</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="any_additional_details">Any additional details</string>
+    <string name="submit">SUBMIT</string>
 </resources>
