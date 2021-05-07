@@ -5,10 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
-import com.google.android.material.textfield.TextInputLayout
 import com.sumeshpandit.datafill.databinding.FragmentFillingBinding
 
 class FillingFragment : Fragment() {
@@ -20,25 +18,18 @@ class FillingFragment : Fragment() {
     ): View {
 
         val binding= DataBindingUtil.inflate<FragmentFillingBinding>(inflater,R.layout.fragment_filling, container, false)
-        val view=binding.root
-        val firstName=view.findViewById<TextInputLayout>(R.id.firstName)
-        val lastName=view.findViewById<TextInputLayout>(R.id.lastName)
-        val ageOfPerson=view.findViewById<TextInputLayout>(R.id.pAge)
-        val department=view.findViewById<TextInputLayout>(R.id.department)
-        val email=view.findViewById<TextInputLayout>(R.id.mail)
-        val isMale=view.findViewById<RadioButton>(R.id.Male)
-        val isFemale=view.findViewById<RadioButton>(R.id.Female)
-        val additional=view.findViewById<TextInputLayout>(R.id.additional)
+
         binding.submit.setOnClickListener {
 
-            binding.fname=firstName.editText?.text.toString()
-            binding.lname=lastName.editText?.text.toString()
-            binding.age=ageOfPerson.editText?.text.toString()
-            binding.dept=department.editText?.text.toString()
-            binding.email=email.editText?.text.toString()
-            binding.male=isMale.isChecked
-            binding.female=isFemale.isChecked
-            binding.other=additional.editText?.text.toString()
+            binding.fname=binding.firstName.editText?.text.toString()
+            binding.lname=binding.lastName.editText?.text.toString()
+            binding.age=binding.pAge.editText?.text.toString()
+            binding.dept=binding.department.editText?.text.toString()
+            binding.email=binding.mail.editText?.text.toString()
+            binding.male=binding.Male.isChecked
+            binding.female=binding.Female.isChecked
+            binding.other=binding.additional.editText?.text.toString()
+
             val displayText="\n You are ${binding.fname} ${binding.lname}. \n \n You are ${binding.age} years old. \n \n" +
                     " Your gender is ${if(binding.male==true) "Male" else if(binding.female==true) "Female" else " "} .\n \n Joining " +
                     "details will be sent to: \n ${binding.email} \n \n You belong to ${binding.dept} department. \n " +
@@ -49,6 +40,6 @@ class FillingFragment : Fragment() {
             Navigation.findNavController(binding.root).navigate(action)
 
         }
-        return view
+        return binding.root
     }
 }
