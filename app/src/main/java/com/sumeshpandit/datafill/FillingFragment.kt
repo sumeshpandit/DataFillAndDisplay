@@ -38,9 +38,9 @@ class FillingFragment : Fragment() {
             female=binding.female.isChecked
             other=binding.additional.editText?.text.toString()
 
-            val displayText="\n You are ${fName} ${lName}. \n \n You are ${age} years old. \n \n" +
-                    " Your gender is ${if(male==true) "Male" else if(female==true) "Female" else " "} .\n \n Joining " +
-                    "details will be sent to: \n ${email} \n \n You belong to ${dept} department. \n " +
+            val displayText="\n You are $fName $lName . \n \n You are $age years old. \n \n" +
+                    " Your gender is ${if(male) "Male" else if(female) "Female" else " "} .\n \n Joining " +
+                    "details will be sent to: \n $email \n \n You belong to $dept department. \n " +
                     "\n Additional Information:\n ${other}\n"
 
             val action= FillingFragmentDirections.actionFillingFragmentToDisplayFragment(displayText)

@@ -17,6 +17,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_fillingFragment_to_departmentFragment"
+            app:destination="@id/departmentFragment" />
     </fragment>
     <fragment
         android:id="@+id/displayFragment"
@@ -30,5 +33,14 @@
         <argument
             android:name="displayText"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/departmentFragment"
+        android:name="com.sumeshpandit.datafill.DepartmentFragment"
+        android:label="fragment_department"
+        tools:layout="@layout/fragment_department" >
+        <action
+            android:id="@+id/action_departmentFragment_to_fillingFragment"
+            app:destination="@id/fillingFragment" />
     </fragment>
 </navigation>

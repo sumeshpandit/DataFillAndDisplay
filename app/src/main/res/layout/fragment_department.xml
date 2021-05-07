@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DepartmentFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RadioButton
+            android:id="@+id/ola_electric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ola_electric" />
+
+        <RadioButton
+            android:id="@+id/ola_cabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ola_cabs" />
+
+        <RadioButton
+            android:id="@+id/ola_foods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ola_foods" />
+
+        <RadioButton
+            android:id="@+id/ola_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ola_money" />
+
+        <RadioButton
+            android:id="@+id/ola_hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/human_resource" />
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:text="@string/save" />
+
+</FrameLayout>
+</layout>
