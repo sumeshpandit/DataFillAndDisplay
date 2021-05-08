@@ -23,7 +23,7 @@
         <argument
             android:name="deptName"
             app:argType="string"
-            android:defaultValue="Department" />
+            android:defaultValue="Department(select from the list)--->" />
     </fragment>
     <fragment
         android:id="@+id/displayFragment"

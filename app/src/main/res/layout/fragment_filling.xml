@@ -69,17 +69,16 @@
         android:id="@+id/department"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#D0D0D0"
-        android:textColor="@color/black"
         android:textSize="18sp"
-        android:paddingLeft="15dp"
         android:paddingBottom="13dp"
         android:paddingTop="13dp"
+        android:background="#D0D0D0"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mail"
-        android:focusable="true" />
+        android:focusable="true"
+        android:paddingLeft="15dp" />
 
 
     <RadioGroup

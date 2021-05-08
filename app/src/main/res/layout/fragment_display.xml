@@ -36,7 +36,7 @@
         android:clickable="true"
         android:src="@android:drawable/ic_menu_revert"
         android:focusable="true"
-        android:contentDescription="@string/go_back"
+        android:contentDescription="@string/back_to_previous_screen"
         android:layout_marginEnd="30dp" />
 </FrameLayout>
 </layout>

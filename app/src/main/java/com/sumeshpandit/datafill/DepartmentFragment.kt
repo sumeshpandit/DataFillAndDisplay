@@ -12,36 +12,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sumeshpandit.datafill.databinding.FragmentDepartmentBinding
 
 class DepartmentFragment : Fragment() {
-    private var deptName="Department"
     private var layoutManager:RecyclerView.LayoutManager?=null
     private var adapter:RecyclerView.Adapter<RecyclerAdapter.ViewHolder>?=null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
         val binding=DataBindingUtil.inflate<FragmentDepartmentBinding>(inflater,R.layout.fragment_department,container,false)
+
         layoutManager=LinearLayoutManager(context)
         binding.recyclerView.layoutManager=layoutManager
         adapter=RecyclerAdapter()
         binding.recyclerView.adapter=adapter
-        binding.save.setOnClickListener {
 
-            val dept = " "
-//
-//            when {
-//                binding.olaElectric.isChecked -> "@string/ola_electric"
-//                binding.olaCabs.isChecked -> "Ola Cabs"
-//                binding.olaFoods.isChecked -> "Ola Foods"
-//                binding.olaMoney.isChecked -> "Ola Money"
-//                binding.olaHr.isChecked -> "Human Resources"
-//                else -> ""
-//            }
-            deptName= "$deptName : $dept"
-
-            val action= DepartmentFragmentDirections.actionDepartmentFragmentToFillingFragment(deptName)
-
-            Navigation.findNavController(binding.root).navigate(action)
+        binding.goBack.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_departmentFragment_to_fillingFragment)
         }
 
         return binding.root

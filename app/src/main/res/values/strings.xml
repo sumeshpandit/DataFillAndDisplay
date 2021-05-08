@@ -9,7 +9,6 @@
     <string name="female">Female</string>
     <string name="any_additional_details">Any additional details</string>
     <string name="submit">SUBMIT</string>
-    <string name="go_back">go back</string>]
     <string name="ola_electric">Ola Electric</string>
     <string name="ola_cabs">Ola Cabs</string>
     <string name="ola_foods">Ola Foods</string>
@@ -17,4 +16,6 @@
     <string name="human_resource">Human Resource</string>
     <string name="save">save</string>
     <string name="department">Department</string>
+    <string name="go_back_button">Go Back</string>
+    <string name="back_to_previous_screen">Back to previous screen</string>
 </resources>
